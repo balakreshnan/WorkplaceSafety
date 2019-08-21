@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webapps", "webapps", "{50D525D5-967E-49E9-8C12-A9799DCC1411}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webdisplay", "webapps\webdisplay\webdisplay.csproj", "{29D03EBE-A0E0-4126-9D25-B33D8C6DA715}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29D03EBE-A0E0-4126-9D25-B33D8C6DA715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D03EBE-A0E0-4126-9D25-B33D8C6DA715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D03EBE-A0E0-4126-9D25-B33D8C6DA715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D03EBE-A0E0-4126-9D25-B33D8C6DA715}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29D03EBE-A0E0-4126-9D25-B33D8C6DA715} = {50D525D5-967E-49E9-8C12-A9799DCC1411}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28EF30D3-51C4-49EE-8AC7-2DD3133C96EC}
+	EndGlobalSection
+EndGlobal
