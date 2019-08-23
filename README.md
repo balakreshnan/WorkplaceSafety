@@ -137,7 +137,7 @@ The scenario can be customized to other use cases like hospitals, chemical plant
             - Lag time show if the device is sending data currently.
             - Data is received only when the object is detected.
             - So long lag time are acceptable
-            ![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/currentstatus.jpg "Current Status")
+![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/currentstatus.jpg "Current Status")
         - Latest Detection Status
             - Shows the current object and confidence with time
             - It takes a 2 minute windows of latest data and analyze 
@@ -155,7 +155,7 @@ The scenario can be customized to other use cases like hospitals, chemical plant
             - Both Object count per hours and confidence per hour average is also plotted as chart display.
         - Latest 10 objects
             - This is just the latest 10 records to see the current history 
-            ![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/historical.jpg "24 Hour Data")
+![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/historical.jpg "24 Hour Data")
         - Errors
             - Any runtime error is captured and displayed for troubleshooting purpose.
             - Haven’t had a chance to integrate with application insights.
