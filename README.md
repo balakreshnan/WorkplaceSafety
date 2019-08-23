@@ -115,6 +115,40 @@ The scenario can be customized to other use cases like hospitals, chemical plant
     - I am also saving Device meta data information to further reporting.
 
 > Create Web App to display information
+    - Create a ASP.NET form application
+    - Change the connection string for SQL based on what you created above.
+    - Objects.aspx is the page that displays all the details of object detection
+    - The page refreshes every 20 seconds.
+    - The application uses asp charts to display details as well.
+    - The queries are embedded inside the code itself for logic
+    - On a high level the pages shows 
+        - Current predicted object and confidence and Time
+        - Lag time is the time until the latest record was processed in the cloud side.
+            - Lag time show if the device is sending data currently.
+            - Data is received only when the object is detected.
+            - So long lag time are acceptable
+            ![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/currentstatus.jpg "Current Status")
+        - Latest Detection Status
+            - Shows the current object and confidence with time
+            - It takes a 2 minute windows of latest data and analyze 
+            - Finds if Vest, Hard Hat and Safety glass are detected.
+            - Find if a person exists.
+            - Then if calculates and see if there is a violation.
+            - For example, if a person is available and not hearing vest, safety glass or hard hat then the violation        count is incremented.
+            - The page also counts the vest, hard hat and safety glass.
+            - The above logic is purely fictitious and might have to change based on use case
+            - This is only valid for Realtime purpose as no object tracking is available.
+            - If object tracking, then we can do real time proper person count with violation as well.
+        - Last One Day
+            - The data is aggregated over hour for a 24 hours day from that point.
+            - The data is aggregated and displayed as bar charts for visual display.
+            - Both Object count per hours and confidence per hour average is also plotted as chart display.
+        - Latest 10 objects
+            - This is just the latest 10 records to see the current history 
+            ![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/historical.jpg "24 Hour Data")
+        - Errors
+            - Any runtime error is captured and displayed for troubleshooting purpose.
+            - Haven’t had a chance to integrate with application insights.
 
 ## Future Improvements
 - Improve the custom vision AI model
@@ -122,4 +156,3 @@ The scenario can be customized to other use cases like hospitals, chemical plant
 - Sending alerts to others Business and alerting systems
 - Ability to view images in Cloud and send to custom vision by selecting images.
 - Customize the use case based on different industry and use cases
-
