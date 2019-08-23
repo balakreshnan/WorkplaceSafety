@@ -18,27 +18,108 @@ The scenario can be customized to other use cases like hospitals, chemical plant
 - Web App – Dashboard uses Azure SQL data to display the information in the page. It also uses historically data as well from Azure SQL but limited to the data stored in SQL.
 
 ## Create a custom vision model using pictures available using custom vision service
-Log into customvision.ai and create a compact object detection project. 
-Upload the images with various tags. 
-Tag each image with the correct tag and bounding box. 
-Train the model and download the model as AI vision kit deploy files.
-For details please follow other articles in the vision ai documentation
+- Log into customvision.ai and create a compact object detection project. 
+- Upload the images with various tags. 
+- Tag each image with the correct tag and bounding box. 
+- Train the model and download the model as AI vision kit deploy files.
+- For details please follow other articles in the vision ai documentation
 
 ## Deploy the model to Vision Kit
-Download the model file and upload to blob storage where we can access it for module twin. 
-You can zip the model and upload. 
-The ModelUrlZip property is assigned in the module twin to download the new vision model created. Now you should see the new model displayed the bounding box when you wear hard hat or vest or safety glass. The model should also predict Person as well.
-"https://bbiotstore.blob.core.windows.net/others/Model.zip"
+- Download the model file and upload to blob storage where we can access it for module twin. 
+- You can zip the model and upload. 
+- The ModelUrlZip property is assigned in the module twin to download the new vision model created. Now you should see the new model displayed the bounding box when you wear hard hat or vest or safety glass. The model should also predict Person as well.
+- "https://bbiotstore.blob.core.windows.net/others/Model.zip"
 
 ## Create Report and Dashboard
 > Create a resource group to process
+> Create Storage blob
+- Create a blob account
+- Create a container
+- Name the container as: visoinkitdata
+- This is for long term storage of scored data to auditing and compliance and reporting purpose
 
+> Create Azure SQL database
+- Create a database
+- Create a new table
+- Here is the create table script:
+```
+    SET ANSI_NULLS ON
+    GO
+    SET QUOTED_IDENTIFIER ON
+    GO
+    CREATE TABLE [dbo].[visionkitinputs](
+        [id] [int] IDENTITY(1,1) NOT NULL,
+        [confidence] [float] NULL,
+        [label] [nvarchar](2000) NULL,
+        [EventProcessedUtcTime] [datetime] NULL,
+        [PartitionId] [int] NULL,
+        [EventEnqueuedUtcTime] [datetime] NULL,
+        [MessageId] [nvarchar](250) NULL,
+        [CorrelationId] [nvarchar](250) NULL,
+        [ConnectionDeviceId] [nvarchar](250) NULL,
+        [ConnectionDeviceGenerationId] [nvarchar](2000) NULL,
+        [EnqueuedTime] [datetime] NULL,
+        [inserttime] [datetime] NULL
+    ) ON [PRIMARY]
+    GO
+    ALTER TABLE [dbo].[visionkitinputs] ADD  CONSTRAINT [DF_visionkitinputs_inserttime]  DEFAULT (getdate()) FOR [inserttime]
+    GO
+```
 
+> Create Stream Analytics
+- Create new Stream Analytics Cloud job
+    - Create input from Iot Hub to read the data coming from the vision kit modules.
+    - Create 2 outputs
+        - One for Blob storage: outputblob for long term storage
+            - Folder pattern: data/{date}
+            - Date Format: YYYY/MM/DD
+            - The above is for making sure larger data set can be created as well.
+            - In Future when reading the data can be read parallely as well.
+            - Save as CSV so that multiple system can be used to view the data if needed.
+        - Other for Azure SQL database that was created above
+            - Select table as: visionkitinputs
+            - Connect with SQL user name and password.
+            - Leave everything else as default.
+    - Now create the query to read data from Iot Hub and then parse the JSON structure into table format – row and column format and send it to both outputs.
+        - Query Explained below
+        ```
+            WITH visiondata AS (
+                SELECT
+                confidence
+                ,label
+                ,EventProcessedUtcTime
+                ,PartitionId
+                ,EventEnqueuedUtcTime
+                ,IoTHub.MessageId as MessageId
+                ,IoTHub.CorrelationId as CorrelationId
+                ,IoTHub.ConnectionDeviceId as ConnectionDeviceId
+                ,IoTHub.ConnectionDeviceGenerationId as ConnectionDeviceGenerationId
+                ,IoTHub.EnqueuedTime as EnqueuedTime
+            FROM
+                input
+            )
+            SELECT confidence,label,EventProcessedUtcTime,
+            PartitionId,EventEnqueuedUtcTime,
+            MessageId,CorrelationId,ConnectionDeviceId,
+            ConnectionDeviceGenerationId,EnqueuedTime INTO outputblob FROM visiondata
+
+            SELECT confidence,label,EventProcessedUtcTime,
+            PartitionId,EventEnqueuedUtcTime,
+            MessageId,CorrelationId,ConnectionDeviceId,
+            ConnectionDeviceGenerationId,EnqueuedTime INTO sqloutput FROM visiondata
+
+        ```
+    - First part is CTE with is common table expression
+    - To send the output into multiple output a temporary CTE is created and then selected columns are used to push that into Azure SQL table and Blob storage.
+    - The 2 Select query is one for Blob output and other for Azure SQL output.
+    - I am also saving Device meta data information to further reporting.
+
+> Create Web App to display information
 
 ## Future Improvements
-Improve the custom vision AI model
-Add object Tracking
-Sending alerts to others Business and alerting systems
-Ability to view images in Cloud and send to custom vision by selecting images.
-Customize the use case based on different industry and use cases
+- Improve the custom vision AI model
+- Add object Tracking
+- Sending alerts to others Business and alerting systems
+- Ability to view images in Cloud and send to custom vision by selecting images.
+- Customize the use case based on different industry and use cases
 
