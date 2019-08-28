@@ -12,9 +12,11 @@ Go to the Iot Hub where Vision Kit is configured.
 > Select Add Modules and then click New Iot Edge Module.
 
 Note: i am using existing docker image that was created.
+
 - Name the module as CameraTaggingModule
 - specify the docker image URI as : ebertrams/camerataggingmodule:0.0.62-arm32v7
 - Here is the container options
+
 ```
 {
   "ExposedPorts": {
@@ -43,7 +45,9 @@ Note: i am using existing docker image that was created.
   }
 }
 ```
+
 - Environment Variables
+
 RTSP_IP
 RTSP_PORT
 RTSP_PATH
@@ -93,6 +97,7 @@ Click Next and go to routes
 - Route should be
 
 ```
+
 {
   "routes": {
     "VisionModule": "FROM /messages/* INTO $upstream",
@@ -103,4 +108,30 @@ Click Next and go to routes
 
 - the first route to send the Vision Sample Module to send detected obejct to iot hub
 - the second is for saving the file for blob storage.
+- Click Next and Click Save or Finish.
 
+## Validation
+
+use the ADB shell command to display all the docker container in AI kit
+
+> Use adb shell docker ps - the command will show all the container.
+
+To access the camera tagging module find the Ip address of vision kit and then use http://IPAddress:3000
+Use Chrome to get better video results. Make sure correct IP is displayed in the RTSP URI.
+To change IP go back to Iot Hub and select the device and go to Set Modules and click configure next to the module and then add the correct IP for RTSP_IP.
+
+## Troubleshoot
+
+use:
+
+### Error logs for camera tagging module
+
+adb shell docker logs CameraTaggingModule to disply the error logs
+
+### Error logs for Vision Sample Module
+
+adb shell docker logs VisionSampleModule to disply the error logs
+
+### Error logs for Edge Iot Hub module
+
+adb shell docker logs edgeHub to disply the error logs
