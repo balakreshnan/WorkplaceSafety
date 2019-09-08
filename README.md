@@ -23,7 +23,8 @@ The scenario can be customized to other use cases like hospitals, chemical plant
 - Blob Storage – the same data going into Azure SQL is stored in blob for long term storage. Data older than one year or more is kept for auditing records and compliance. Preferably the images should also be stored here so that compliance and auditing can be performed when needed. Storing this data can also be moved to cold storage if needed to keep it for long term. More on long term and auditing purpose. Ability to analyze the model results based on historical data.
 - Web App – Dashboard uses Azure SQL data to display the information in the page. It also uses historically data as well from Azure SQL but limited to the data stored in SQL.
 - Camera Tagging Module. Here is another module to take pictures and tag them and send to custom vision service and also send to Blob Storage. Blob storage is used for long term and historical data analysis. In practical use case we wanted ability take real world pictures and then use them for training custom vision model and make the model more accurate.
-![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/readme.md "CameraTaggingModule")
+
+https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/readme.md
 
 > For example in a real Factory or Plant or Hospital or any other scenario unless we have pictures it becomes hard to build model. With the above tagging module we can take the real world pictures and use that for training. The above module is based on manually taking pictures so that there is control on the picture taken and storage.
 
