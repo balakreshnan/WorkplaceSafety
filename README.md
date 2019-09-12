@@ -17,11 +17,17 @@ The scenario can be customized to other use cases like hospitals, chemical plant
 
 ## Architecture Explained
 
-- IoHub – To collect detected object and send it to cloud to further process using downstream system. Serves as the gateway to pump data out of the iot devices and send it to cloud. Also device management capability and secured data transmission are all provided by the Iot Hub.
-- Stream Analytics – To read the data from incoming event hub in iot hub and parse the JSON and write back into Azure SQL and blob Storage. The incoming data set is in JSON format and that has to deflated to a structured format to be able to analysis. Also here we can do windowing based calculation if needed based on the use case requirements.
-- Azure SQL – The detected object data with time at which object was detected are store for creating charts for web site and power bi based reporting. The data is only kept for 6 months to 1 year time frame for reporting and then cleanup job is created to delete the old records. Is used for Reporting and Dashboarding. Also used for downstream business systems if needed.
-- Blob Storage – the same data going into Azure SQL is stored in blob for long term storage. Data older than one year or more is kept for auditing records and compliance. Preferably the images should also be stored here so that compliance and auditing can be performed when needed. Storing this data can also be moved to cold storage if needed to keep it for long term. More on long term and auditing purpose. Ability to analyze the model results based on historical data.
-- Web App – Dashboard uses Azure SQL data to display the information in the page. It also uses historically data as well from Azure SQL but limited to the data stored in SQL.
+- **IoHub** – To collect detected object and send it to cloud to further process using downstream system. Serves as the gateway to pump data out of the iot devices and send it to cloud. Also device management capability and secured data transmission are all provided by the Iot Hub.
+- **Stream Analytics** – To read the data from incoming event hub in iot hub and parse the JSON and write back into Azure SQL and blob Storage. The incoming data set is in JSON format and that has to deflated to a structured format to be able to analysis. Also here we can do windowing based calculation if needed based on the use case requirements.
+- **Azure SQL** – The detected object data with time at which object was detected are store for creating charts for web site and power bi based reporting. The data is only kept for 6 months to 1 year time frame for reporting and then cleanup job is created to delete the old records. Is used for Reporting and Dashboarding. Also used for downstream business systems if needed.
+- **Blob Storage** – the same data going into Azure SQL is stored in blob for long term storage. Data older than one year or more is kept for auditing records and compliance. Preferably the images should also be stored here so that compliance and auditing can be performed when needed. Storing this data can also be moved to cold storage if needed to keep it for long term. More on long term and auditing purpose. Ability to analyze the model results based on historical data.
+- **Web App** – Dashboard uses Azure SQL data to display the information in the page. It also uses historically data as well from Azure SQL but limited to the data stored in SQL.
+- **Camera Tagging Module** - Here is another module to take pictures and tag them and send to custom vision service and also send to Blob Storage. Blob storage is used for long term and historical data analysis. In practical use case we wanted ability take real world pictures and then use them for training custom vision model and make the model more accurate.
+
+To get started to add the module to vision kit follow the below link
+https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/readme.md
+
+> For example in a real Factory or Plant or Hospital or any other scenario unless we have pictures it becomes hard to build model. With the above tagging module we can take the real world pictures and use that for training. The above module is based on manually taking pictures so that there is control on the picture taken and storage.
 
 ## Create a custom vision model using pictures available using custom vision service
 
