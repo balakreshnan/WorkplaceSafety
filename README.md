@@ -1,3 +1,6 @@
+# AI For Good
+Proctecting human casuality and accidents in any workplace safety is very important and critical. This is also part of AI for Good projects.
+
 # WorkplaceSafety
 AI based - Custom Vision Workplace Safety detection system.
 
