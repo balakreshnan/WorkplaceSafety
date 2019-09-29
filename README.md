@@ -87,32 +87,31 @@ https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/
     GO
     
     /****** Object:  Table [dbo].[visionkitcount]    Script Date: 9/29/2019 7:24:20 AM ******/
-SET ANSI_NULLS ON
-GO
+	SET ANSI_NULLS ON
+	GO
 
-SET QUOTED_IDENTIFIER ON
-GO
+	SET QUOTED_IDENTIFIER ON
+	GO
 
-CREATE TABLE [dbo].[visionkitcount](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[Avgconfidence] [float] NULL,
-	[label] [nvarchar](2000) NULL,
-	[EventProcessedUtcTime] [datetime] NULL,
-	[PartitionId] [int] NULL,
-	[EventEnqueuedUtcTime] [datetime] NULL,
-	[MessageId] [nvarchar](250) NULL,
-	[CorrelationId] [nvarchar](250) NULL,
-	[ConnectionDeviceId] [nvarchar](250) NULL,
-	[ConnectionDeviceGenerationId] [nvarchar](2000) NULL,
-	[EnqueuedTime] [datetime] NULL,
-	[count] [int] NULL,
-	[inserttime] [datetime] NULL
-) ON [PRIMARY]
-GO
+	CREATE TABLE [dbo].[visionkitcount](
+		[id] [int] IDENTITY(1,1) NOT NULL,
+		[Avgconfidence] [float] NULL,
+		[label] [nvarchar](2000) NULL,
+		[EventProcessedUtcTime] [datetime] NULL,
+		[PartitionId] [int] NULL,
+		[EventEnqueuedUtcTime] [datetime] NULL,
+		[MessageId] [nvarchar](250) NULL,
+		[CorrelationId] [nvarchar](250) NULL,
+		[ConnectionDeviceId] [nvarchar](250) NULL,
+		[ConnectionDeviceGenerationId] [nvarchar](2000) NULL,
+		[EnqueuedTime] [datetime] NULL,
+		[count] [int] NULL,
+		[inserttime] [datetime] NULL
+	) ON [PRIMARY]
+	GO
 
-ALTER TABLE [dbo].[visionkitcount] ADD  CONSTRAINT [DF_visionkitcount_inserttime]  DEFAULT (getdate()) FOR [inserttime]
-GO
-    
+	ALTER TABLE [dbo].[visionkitcount] ADD  CONSTRAINT [DF_visionkitcount_inserttime]  DEFAULT (getdate()) FOR [inserttime]
+	GO
 ```
 
 > Create Stream Analytics
