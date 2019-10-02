@@ -24,12 +24,19 @@
         <div class="col-md-4">
             <h2></h2>
             <p>
-                
+               
             </p>
             <p>
                 
             </p>
         </div>
+    </div>
+    <div class="row">
+        <h2>Architecture</h2>
+            <p>
+                <asp:Image ID="Image2" runat="server" Width="800px" Height="447px"
+                     ImageUrl="~/WorkplaceSafetyarch.jpg"/>
+            </p>
     </div>
 
 </asp:Content>
