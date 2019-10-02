@@ -62,6 +62,7 @@ https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/
 - Create a database
 - Create a new table
 - Here is the create table script:
+- Create also the count table to aggregate how many objects detected every minute.
 ```
     SET ANSI_NULLS ON
     GO
@@ -84,6 +85,33 @@ https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/
     GO
     ALTER TABLE [dbo].[visionkitinputs] ADD  CONSTRAINT [DF_visionkitinputs_inserttime]  DEFAULT (getdate()) FOR [inserttime]
     GO
+    
+    /****** Object:  Table [dbo].[visionkitcount]    Script Date: 9/29/2019 7:24:20 AM ******/
+	SET ANSI_NULLS ON
+	GO
+
+	SET QUOTED_IDENTIFIER ON
+	GO
+
+	CREATE TABLE [dbo].[visionkitcount](
+		[id] [int] IDENTITY(1,1) NOT NULL,
+		[Avgconfidence] [float] NULL,
+		[label] [nvarchar](2000) NULL,
+		[EventProcessedUtcTime] [datetime] NULL,
+		[PartitionId] [int] NULL,
+		[EventEnqueuedUtcTime] [datetime] NULL,
+		[MessageId] [nvarchar](250) NULL,
+		[CorrelationId] [nvarchar](250) NULL,
+		[ConnectionDeviceId] [nvarchar](250) NULL,
+		[ConnectionDeviceGenerationId] [nvarchar](2000) NULL,
+		[EnqueuedTime] [datetime] NULL,
+		[count] [int] NULL,
+		[inserttime] [datetime] NULL
+	) ON [PRIMARY]
+	GO
+
+	ALTER TABLE [dbo].[visionkitcount] ADD  CONSTRAINT [DF_visionkitcount_inserttime]  DEFAULT (getdate()) FOR [inserttime]
+	GO
 ```
 
 > Create Stream Analytics
@@ -101,6 +129,7 @@ https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/
             - Select table as: visionkitinputs
             - Connect with SQL user name and password.
             - Leave everything else as default.
+            - Also count the number of items detected and sent to Iot hub. 
     - Now create the query to read data from Iot Hub and then parse the JSON structure into table format – row and column format and send it to both outputs.
         - Query Explained below
 ```
@@ -128,6 +157,16 @@ https://github.com/balakreshnan/WorkplaceSafety/blob/master/CameraTaggingModule/
             PartitionId,EventEnqueuedUtcTime,
             MessageId,CorrelationId,ConnectionDeviceId,
             ConnectionDeviceGenerationId,EnqueuedTime INTO sqloutput FROM visiondata
+
+            SELECT ConnectionDeviceId,label, 
+            avg(confidence) as Avgconfidence, 
+            count(*) as count,
+            MIN(CAST(EventEnqueuedUtcTime AS DATETIME)) as EventEnqueuedUtcTime,
+            MIN(CAST(EventProcessedUtcTime AS DATETIME)) as EventProcessedUtcTime,
+            MIN(CAST(EnqueuedTime AS DATETIME)) as EnqueuedTime
+            INTO sqlaggr
+            FROM visiondata
+            GROUP BY TUMBLINGWINDOW(second,60),ConnectionDeviceId,label
 
 ```
     - First part is CTE with is common table expression
