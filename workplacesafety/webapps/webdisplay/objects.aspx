@@ -5,6 +5,7 @@
     <br />
     <br />
     <div class="jumbotron">
+
         <div class="row">
         
             <h2>Current Object Detection status</h2>
@@ -71,30 +72,36 @@
                             <b>Count:</b>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="pCount" runat="server" Text="NA" Font-Size="Large"></asp:label>                        
+                            <asp:label ID="pCount" runat="server" Text="0" Font-Size="Large"></asp:label>                        
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="vestcountlbl" runat="server" Text="NA" Font-Size="Large"></asp:label>
+                            <asp:label ID="vestcountlbl" runat="server" Text="0" Font-Size="Large"></asp:label>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="hardhatcountlbl" runat="server" Text="NA" Font-Size="Large"></asp:label>
+                            <asp:label ID="hardhatcountlbl" runat="server" Text="0" Font-Size="Large"></asp:label>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="safetyglasscountlbl" runat="server" Text="NA" Font-Size="Large"></asp:label>
+                            <asp:label ID="safetyglasscountlbl" runat="server" Text="0" Font-Size="Large"></asp:label>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="alertcountlbl" runat="server" Text="NA" Font-Size="Large"></asp:label>
+                            <asp:label ID="alertcountlbl" runat="server" Text="0" Font-Size="Large"></asp:label>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:label ID="safetycountlbl" runat="server" Text="NA" Font-Size="Large"></asp:label>
+                            <asp:label ID="safetycountlbl" runat="server" Text="0" Font-Size="Large"></asp:label>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
+                
             </div>
     </div>
+    <b>Note: *</b> Violation = Person + not wearing (vest + Hard Hat + Safety glass) <br />
+                Safety count is when Person wearing Vest, Hard Hat and Safety Glass.<br />
 
     <div class="row">
-        <h3>Last One Day</h3><br />
+        <h3>Last One Day</h3>
+        <b>Note:</b> the below charts shows across 24 hour, with 1 hour average of confidence and total objects detected count. The camera detect 5 times in 1 minute.
+        <br />
+        <br />
         <asp:Table runat="server">
             <asp:TableHeaderRow>
                 <asp:TableHeaderCell>Objects Count(hr)</asp:TableHeaderCell>
