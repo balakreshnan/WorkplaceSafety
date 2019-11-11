@@ -8,14 +8,16 @@ To get started with Raspberry PI 4 first get the raspberry pi 4 to working condi
 https://github.com/instabot-py/instabot.py/wiki/Installing-Python-3.7-on-Raspberry-Pi
 
 Once python3 is installed please follow the instruction to install tensorflow. Before installing tensorflow please update the operating system.
+```
 sudo apt-get update
 sudo apt-get upgrade
+```
 
 ## Tensorflow installation
 open a terminal in raspberry pi 4 and type the below commands
 ```
-sudo apt install libatlas-base-dev
-pip3 install tensorflow
+sudo apt-get install libatlas-base-dev
+sudo pip3 install tensorflow
 ```
 
 To test tensoflow is installed.Go to Programming in the main menu of the Raspberry pi desktop and navigate to Thonny python ide and select that. Click New and type the below:
