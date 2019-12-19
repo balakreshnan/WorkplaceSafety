@@ -69,3 +69,4 @@ if __name__ == '__main__'
 ```
 
 Save the file and run and output show the object detected and also it's probability.
+
