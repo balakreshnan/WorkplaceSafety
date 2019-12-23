@@ -28,6 +28,8 @@ The model pb file, labels files and inferencing code are also available. simple_
 ## Code below.
 
 The below code was readily available sample code modified to inference custom vision tensorflow model.
+Here is the original sample file i used and updated to inference azure custom vision compact model exported as tensorflow model.
+https://github.com/JetsonHacksNano/CSI-Camera/blob/master/simple_camera.py
 
 ```
 # MIT License
