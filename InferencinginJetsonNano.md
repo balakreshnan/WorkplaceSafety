@@ -11,6 +11,7 @@ Get the NVidia Jetson Nano up and running. Install Tensorflow as per Jetson nano
 ## Install Pillow
 
 Pillow package was not found. So i had to install in NVidia jetson Nano.
+
 ```
 python3 -m pip install Pillow
 ```
