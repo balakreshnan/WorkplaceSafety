@@ -4,6 +4,10 @@
 
 When exported the model from custom vision there are options to build models using tensorflow and embedd that into docker for various operating systems like Raspberry PI, linux and windows. To do this we need to re train the model using option to download for tensorflow or other mobile options.
 
+## Architecture
+
+![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/WorkplaceSafetyarch.jpg "Architecture")
+
 To get started with Raspberry PI 4 first get the raspberry pi 4 to working condition by installing the operating system. Next is to update python3 and do that please follow the link below
 https://github.com/instabot-py/instabot.py/wiki/Installing-Python-3.7-on-Raspberry-Pi
 
