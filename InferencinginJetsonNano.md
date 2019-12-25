@@ -4,6 +4,10 @@
 
 When exported the model from custom vision there are options to build models using tensorflow and embedd that into docker for various operating systems like Rasperry Pi, linux and windows and Tensorflow. To do this we need to re train the model using option to download for tensorflow or other mobile options.
 
+## Architecture
+
+![alt text](https://github.com/balakreshnan/WorkplaceSafety/blob/master/WorkplaceSafetyarch.jpg "Architecture")
+
 ## Get started with NVidia Jetson Nano
 
 Get the NVidia Jetson Nano up and running. Install Tensorflow as per Jetson nano Zoo link documentation available in Jetson Nano desktop screen.
@@ -24,6 +28,9 @@ The model pb file, labels files and inferencing code are also available. simple_
 ## Code below.
 
 The below code was readily available sample code modified to inference custom vision tensorflow model.
+Here is the original sample file i used and updated to inference azure custom vision compact model exported as tensorflow model.
+https://github.com/JetsonHacksNano/CSI-Camera/blob/master/simple_camera.py
+Thanks to JetsonHacks.
 
 ```
 # MIT License
