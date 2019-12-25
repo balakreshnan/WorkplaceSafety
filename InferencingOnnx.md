@@ -113,5 +113,5 @@ if __name__ == '__main__':
 to test the model
 
 ```
-python3 predict.py "vest1.jpg"
+python3 predict.py "vest2.jpg"
 ```

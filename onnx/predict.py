@@ -41,7 +41,7 @@ def main(image_filename):
 
     #image = Image.open(image_filename)
 
-    image_filename = "vest1.jpg"
+    #image_filename = "vest1.jpg"
 
 
     image = Image.open(image_filename)
