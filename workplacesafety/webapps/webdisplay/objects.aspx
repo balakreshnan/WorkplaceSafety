@@ -16,6 +16,7 @@
                             Updated Time
                         </asp:TableHeaderCell>
                         <asp:TableHeaderCell>Lag (Seconds)</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Alert</asp:TableHeaderCell>
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
@@ -23,6 +24,10 @@
                         </asp:TableCell>
                         <asp:TableCell>
                             &nbsp;&nbsp;&nbsp;<asp:Label ID="lagtime" runat="server"></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            &nbsp;&nbsp;&nbsp;<asp:CheckBox ID="sendalert" runat="server"  
+                                AutoPostBack="True" OnCheckedChanged="sendalert_Clicked"/>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

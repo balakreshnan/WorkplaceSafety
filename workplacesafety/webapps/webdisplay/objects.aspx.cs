@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Text;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+using System.Net.Mail;
+using System.Net;
 
 namespace webdisplay
 {
@@ -367,6 +372,63 @@ namespace webdisplay
                 errortxt.Text += "Error: " + ex.StackTrace.ToString() + System.Environment.NewLine;
                 //throw ex;
             }
+        }
+
+        protected void sendalert_Clicked(Object sender, EventArgs e)
+        {
+
+            // Calculate the subtotal and display the result in currency format.
+            // Include tax if the check box is selected.
+            //Message.Text = CalculateTotal(checkbox1.Checked).ToString("c");
+            //var client = new TwilioRestClient("ACa50fd18226b72083298768eda6380d05", "5335e1759eb10d81c7eb900c155a743b");
+            try
+            {            //client.SendMessage("+14142061344", "+16313271000", "Overheating Alert detected and Work order is created");
+
+                //const string accountSid = "ACa50fd18226b72083298768eda6380d05";
+                //const string authToken = "5335e1759eb10d81c7eb900c155a743b";
+
+                //if (sendalert.Checked)
+                //{
+
+
+                //    TwilioClient.Init(accountSid, authToken);
+
+                //    var message = MessageResource.Create(
+                //        body: "Compiance alert please follow compliance procedure wear your vest, hard hat, safety glass",
+                //        from: new Twilio.Types.PhoneNumber("+14142061344"),
+                //        to: new Twilio.Types.PhoneNumber("+16313271000")
+                //    );
+
+                //}
+
+                //create the mail message
+                MailMessage mail = new MailMessage();
+                //set the FROM address
+                mail.From = new MailAddress("test@hotmail.com");
+                //set the RECIPIENTS
+                mail.To.Add("4041111111@messaging.sprintpcs.com");
+                //enter a SUBJECT
+                mail.Subject = "Comliance alert";
+                //Enter the message BODY
+                mail.Body = "Compiance alert please follow compliance procedure wear your vest, hard hat, safety glass";
+                //set the mail server (default should be smtp.1and1.com)
+                SmtpClient smtp = new SmtpClient("smtp.live.com");
+                //Enter your full e-mail address and password
+                smtp.Credentials = new NetworkCredential("test@hotmail.com", "xxxxxx");
+                mail.IsBodyHtml = true;
+                //send the message 
+                smtp.EnableSsl = true;
+                //smtp.Send(mail);
+
+
+            }
+            catch (Exception ex)
+            {
+                //do nothing for now.
+                //throw;
+            }
+
+
         }
 
 

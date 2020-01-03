@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webdisplay {
-    
-    
-    public partial class objects {
-        
+namespace webdisplay
+{
+
+
+    public partial class objects
+    {
+
         /// <summary>
         /// tbl1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tbl1;
-        
+
         /// <summary>
         /// updtime control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label updtime;
-        
+
         /// <summary>
         /// lagtime control.
         /// </summary>
@@ -38,7 +40,16 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lagtime;
-        
+
+        /// <summary>
+        /// sendalert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox sendalert;
+
         /// <summary>
         /// timer1 control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.Timer timer1;
-        
+
         /// <summary>
         /// labels control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labels;
-        
+
         /// <summary>
         /// timeupd control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label timeupd;
-        
+
         /// <summary>
         /// confidence control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label confidence;
-        
+
         /// <summary>
         /// pCount control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label pCount;
-        
+
         /// <summary>
         /// vestcountlbl control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label vestcountlbl;
-        
+
         /// <summary>
         /// hardhatcountlbl control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hardhatcountlbl;
-        
+
         /// <summary>
         /// safetyglasscountlbl control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label safetyglasscountlbl;
-        
+
         /// <summary>
         /// alertcountlbl control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label alertcountlbl;
-        
+
         /// <summary>
         /// safetycountlbl control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label safetycountlbl;
-        
+
         /// <summary>
         /// Chart1 control.
         /// </summary>
@@ -137,7 +148,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
-        
+
         /// <summary>
         /// Chart2 control.
         /// </summary>
@@ -146,7 +157,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.DataVisualization.Charting.Chart Chart2;
-        
+
         /// <summary>
         /// lview control.
         /// </summary>
@@ -155,7 +166,7 @@ namespace webdisplay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lview;
-        
+
         /// <summary>
         /// errortxt control.
         /// </summary>

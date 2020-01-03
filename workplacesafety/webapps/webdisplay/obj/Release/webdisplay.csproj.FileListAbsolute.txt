@@ -147,3 +147,10 @@ C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdispla
 C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\obj\Release\webdisplay.csproj.CopyComplete
 C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\obj\Release\webdisplay.dll
 C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\obj\Release\webdisplay.pdb
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\Twilio.dll
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\babal\Documents\Work\WorkplaceSafety1\workplacesafety\webapps\webdisplay\bin\Twilio.xml
