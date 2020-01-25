@@ -4,7 +4,7 @@ Proctecting human casuality and accidents in any workplace safety is very import
 # WorkplaceSafety
 AI based - Custom Vision Workplace Safety detection system.
 
-# Run AI in Intelligent Edge or Small footprint devices - Show Case
+## Run AI in Intelligent Edge or Small footprint devices - Show Case
 
 Project is been show cased in these below web sites:
 
