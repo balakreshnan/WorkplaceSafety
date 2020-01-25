@@ -9,6 +9,7 @@ AI based - Custom Vision Workplace Safety detection system.
 Project is been show cased in these below web sites:
 
 https://microsoft.github.io/ai-at-edge/docs/workplace_safety/
+
 https://azure.github.io/Vision-AI-DevKit-Pages/docs/community_project02/
 
 ```
