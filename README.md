@@ -4,6 +4,17 @@ Proctecting human casuality and accidents in any workplace safety is very import
 # WorkplaceSafety
 AI based - Custom Vision Workplace Safety detection system.
 
+# Run AI in Intelligent Edge or Small footprint devices - Show Case
+
+Project is been show cased in these below web sites:
+
+https://microsoft.github.io/ai-at-edge/docs/workplace_safety/
+https://azure.github.io/Vision-AI-DevKit-Pages/docs/community_project02/
+
+```
+note: if referenced or showcased in other web site and if you want to display above please email me.
+```
+
 # Use Case
 
 Ability to detect vision-based compliance. In a environment where safety is important for workforce to work there are Compliance rules in place to wear proper gear to safe guard the environment and keep the humans working safe and secured. For example, depending on what manufacturing company the human causality is one thing every one wants to avoid. So, they insist on wearing proper vest, hard hats and safety glass or lab coats and glass to protect. In some cases, may be mask and complete covered suits for chemical spills etc. So, the idea here is to detect human and then see if they are wearing Vest, Hard hats and Safety glass. Usually in manufacturing there are lines where folks can walk and that would be the next future work. Ability to detect humans and compliance and alert management with reporting and Realtime alerts. Also, ability to detect forklift and alert humans on the way to the fork lift operator. The system just not only detect the objects but also ability to store the information for further reporting and analysis.
