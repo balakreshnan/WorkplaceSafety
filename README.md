@@ -12,6 +12,11 @@ https://microsoft.github.io/ai-at-edge/docs/workplace_safety/
 
 https://azure.github.io/Vision-AI-DevKit-Pages/docs/community_project02/
 
+Featured Project in hackster.io
+
+https://www.hackster.io/balabala76/ai-for-good-workplace-safety-ca0ea5
+
+
 ```
 note: if referenced or showcased in other web site and if you want to display above please email me.
 ```
