@@ -74,6 +74,34 @@
                 "WorkingDir": "/root/deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5/configs/"
               }
             }
+          },
+          "AzureBlobStorageonIoTEdge": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azure-blob-storage:latest",
+              "createOptions": {
+                "HostConfig": {
+                  "PortBindings": {
+                    "11002/tcp": [
+                      {
+                        "HostPort": "11002"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "env": {
+              "LOCAL_STORAGE_ACCOUNT_KEY": {
+                "value": "<Your local account key>"
+              },
+              "LOCAL_STORAGE_ACCOUNT_NAME": {
+                "value": "<Your local account name>"
+              }
+            }
           }
         }
       }
@@ -82,7 +110,8 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "DeepstreamToIoTHub": "FROM /messages/modules/NVIDIADeepStreamSDK/outputs/* INTO $upstream"
+          "DeepstreamToIoTHub": "FROM /messages/modules/NVIDIADeepStreamSDK/outputs/* INTO $upstream",
+          "AzureBlobStorageonIoTEdgeToIoTHub": "FROM /messages/modules/AzureBlobStorageonIoTEdge/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200

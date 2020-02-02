@@ -59,26 +59,58 @@
             "settings": {
               "image": "marketplace.azurecr.io/nvidia/deepstream-iot-l4t:latest",
               "createOptions": {
-                "Entrypoint":["/usr/bin/deepstream-test5-app","-c","test5_config_file_src_infer_azure_iotedge_edited.txt"],
+                "Entrypoint": [
+                  "/usr/bin/deepstream-test5-app",
+                  "-c",
+                  "test5_config_file_src_infer_azure_iotedge_edited.txt"
+                ],
                 "HostConfig": {
                   "runtime": "nvidia",
                   "Binds": [
-                  "/var/deepstream/custom_configs:/root/deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5/custom_configs/",
-                  "/tmp/.X11-unix/:/tmp/.X11-unix"
+                    "/var/deepstream/custom_configs:/root/deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5/custom_configs/",
+                    "/tmp/.X11-unix/:/tmp/.X11-unix"
                   ],
                   "NetworkMode": "host"
-              },
-              "NetworkingConfig": {
+                },
+                "NetworkingConfig": {
                   "EndpointsConfig": {
-                  "host": {}
+                    "host": {}
                   }
-              },
-              "WorkingDir": "/root/deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5/custom_configs/"
+                },
+                "WorkingDir": "/root/deepstream_sdk_v4.0.1_jetson/sources/apps/sample_apps/deepstream-test5/custom_configs/"
               }
             },
             "env": {
-              "DISPLAY":{
+              "DISPLAY": {
                 "value": ":1"
+              }
+            }
+          },
+          "AzureBlobStorageonIoTEdge": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azure-blob-storage:latest",
+              "createOptions": {
+                "HostConfig": {
+                  "PortBindings": {
+                    "11002/tcp": [
+                      {
+                        "HostPort": "11002"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "env": {
+              "LOCAL_STORAGE_ACCOUNT_KEY": {
+                "value": "Uff2I93VObnz3KQJu7LVSjnWT4909YfKerlkdZ9GiHk24EZ7LK+B02bGvfBD/UZVjs3XXgoqa8Nb6K9E8dHg3A=="
+              },
+              "LOCAL_STORAGE_ACCOUNT_NAME": {
+                "value": "bbiotstore1"
               }
             }
           }
@@ -89,7 +121,8 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "DeepstreamToIoTHub": "FROM /messages/modules/NVIDIADeepStreamSDK/outputs/* INTO $upstream"
+          "DeepstreamToIoTHub": "FROM /messages/modules/NVIDIADeepStreamSDK/outputs/* INTO $upstream",
+          "AzureBlobStorageonIoTEdgeToIoTHub": "FROM /messages/modules/AzureBlobStorageonIoTEdge/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
