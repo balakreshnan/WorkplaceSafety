@@ -16,6 +16,9 @@ Featured Project in hackster.io
 
 https://www.hackster.io/balabala76/ai-for-good-workplace-safety-ca0ea5
 
+Purdue Paper:
+
+https://github.com/balakreshnan/WorkplaceSafety/blob/master/PPE_ComplianceDetection_CLF2020_Revx.pdf
 
 ```
 note: if referenced or showcased in other web site and if you want to display above please email me.
