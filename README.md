@@ -1,7 +1,7 @@
 # AI For Good
 Proctecting human casuality and accidents in any workplace safety is very important and critical. This is also part of AI for Good projects.
 
-# WorkplaceSafety
+# WorkplaceSafety PPE - Personal Protective Equipment
 AI based - Custom Vision Workplace Safety detection system.
 
 ## Run AI in Intelligent Edge or Small footprint devices - Show Case
