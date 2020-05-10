@@ -20,6 +20,11 @@ Purdue Paper:
 
 https://github.com/balakreshnan/WorkplaceSafety/blob/master/PPE_ComplianceDetection_CLF2020_Revx.pdf
 
+10th Learning Factory paper on PPE published:
+
+https://www.sciencedirect.com/science/article/pii/S2351978920310556?via%3Dihub
+
+
 ```
 note: if referenced or showcased in other web site and if you want to display above please email me.
 ```
