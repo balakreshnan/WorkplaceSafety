@@ -1,7 +1,12 @@
 # Camera tagging module deployment in Iot Hub Edge using Azure Portal
+
 Deploy Camera tagging module into Vision AI kit using Azure protal
 
 ## Deployment
+
+Actual URL:
+
+https://github.com/microsoft/vision-ai-developer-kit/tree/master/samples/official/camera-tagging
 
 ### Deploy Camera Tagging Module
 
